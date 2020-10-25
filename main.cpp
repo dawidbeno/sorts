@@ -3,6 +3,7 @@
 #include "sort.cpp"
 #include "insertionSort.cpp"
 #include "selectionSort.cpp"
+#include "insertionBinarySort.cpp"
 
 using namespace std;
 
@@ -12,21 +13,31 @@ int main() {
 
     cout << "Compare algorithm program" << endl;
 
-    int toSortArrayInsertion[10] = {445,4,48,3,45,2,7,91,12,64};
-    int toSortArraySelection[10] = {445,4,48,3,45,2,7,91,12,64};
+    int toSortArrayInsertion[10] = {445,4,48,3,48,2,7,91,12,64};
+    int toSortArraySelection[10] = {445,4,48,3,48,2,7,91,12,64};
+    int toSortIBS[10] = {445,4,48,3,48,2,7,91,12,64};
     int size = 10;
 
     InsertionSort insertion(toSortArrayInsertion, size);
     SelectionSort selection(toSortArraySelection, size);
+    InsertionBinarySort ibs(toSortArrayInsertion, size);
 
-    printArray(toSortArrayInsertion, size, "Unsorted:           ");
-    insertion.sort();
-    printArray(insertion.getArray(), size, "Sorted (insertion): ");
+    printArray(toSortArraySelection, size, "Unsorted:           ");
+    selection.sort();
+    printArray(selection.getArray(), size, "Sorted (selection): ");
 
     cout << endl;
     printArray(toSortArraySelection, size, "Unsorted:           ");
     selection.sort();
     printArray(selection.getArray(), size, "Sorted (selection): ");
+
+    cout << endl;
+    printArray(toSortIBS, size, "Unsorted:           ");
+    ibs.sort();
+    printArray(ibs.getArray(), size, "Sorted (ibs):       ");
+
+  
+
 
     return 0;
 }
